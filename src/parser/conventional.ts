@@ -20,9 +20,8 @@ export const parseConventional = (
   const pattern: ConventionalPattern = {
     format: "conventional",
 
-    // TODO: lane type detection
     laneType: BmsCalculator.laneType(chart.objects, fileExtension),
-    totalNotes: notes.count(),
+    totalNotes: BmsCalculator.totalPlayableNotes(notes),
     bpms: BmsCalculator.bpmsFromSpeedcore(timing._speedcore),
 
     title: songInfo.title,

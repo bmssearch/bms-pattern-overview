@@ -1,4 +1,10 @@
-import { BMSObjects, BPMTimingAction, Speedcore, TimingAction } from "bms";
+import {
+  BMSObjects,
+  BPMTimingAction,
+  Notes,
+  Speedcore,
+  TimingAction,
+} from "bms";
 import { LaneType, LaneTypeType } from "../types/LaneType";
 
 import { SpeedSegment } from "bms/lib/speedcore/segment";
@@ -9,11 +15,11 @@ interface TimingSegment extends SpeedSegment {
 }
 
 export class BmsCalculator {
-  // public static totalNotes = (notes: Notes): number => {
-  //   const allNotes = notes.all();
-  //   const playableNotes = allNotes.filter((note) => note.column !== undefined);
-  //   return playableNotes.length;
-  // };
+  public static totalPlayableNotes = (notes: Notes): number => {
+    const allNotes = notes.all();
+    const playableNotes = allNotes.filter((note) => note.column !== undefined);
+    return playableNotes.length;
+  };
 
   public static bpmsFromTimingActions = (
     timingActions: TimingAction[],

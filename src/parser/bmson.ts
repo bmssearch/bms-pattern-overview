@@ -26,8 +26,7 @@ export const parseBmson = (buffer: Buffer): BmsonPattern => {
 
     laneType: BmsonCalculator.laneType(modeHint, keys),
 
-    // TODO: only count playable notes
-    totalNotes: notes.count(),
+    totalNotes: BmsCalculator.totalPlayableNotes(notes),
     bpms: BmsCalculator.bpmsFromTimingActions(timingActions, initBpm),
 
     version: castString(bmson.version),
