@@ -1,6 +1,4 @@
 import * as Bmson from "bmson";
-import * as iconv from "iconv-lite";
-import * as jschardet from "jschardet";
 
 import { castNumber, castString } from "../utils/cast";
 

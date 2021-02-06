@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
+    "test": "jest",
     "build": "tsc",
     "dev": "npm run build && node ./dist/dev/index.js",
     "prepublishOnly": "npm run build"
@@ -27,7 +28,11 @@
   },
   "devDependencies": {
     "@types/is-utf8": "^0.2.0",
+    "@types/jest": "^26.0.20",
     "@types/node": "^13.13.5",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.0",
+    "ts-node": "^9.1.1",
     "typescript": "^3.8.3"
   }
 }

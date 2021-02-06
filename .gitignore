@@ -1,2 +1,6 @@
 /dist
 /node_modules
+
+!/src/__tests__/bmses
+/src/__tests__/bmses/*
+!/src/__tests__/bmses/sample.*

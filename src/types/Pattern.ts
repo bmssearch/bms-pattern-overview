@@ -9,9 +9,9 @@ type Common = {
 export type ConventionalPattern = Common & {
   format: "conventional";
   title: string;
-  subtitles?: string[];
+  subtitles: string[];
   artist: string;
-  subartists?: string[];
+  subartists: string[];
   genre: string;
   player?: number;
   rank?: number;
@@ -30,9 +30,9 @@ export type BmsonPattern = Common & {
   format: "bmson";
   version?: string;
   title: string;
-  subtitles?: string[];
+  subtitles: string[];
   artist: string;
-  subartists?: string[];
+  subartists: string[];
   genre: string;
   modeHint?: string;
   chartName?: string;

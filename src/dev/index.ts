@@ -1,9 +1,4 @@
-// @ts-ignore
-
-import * as chardet from "bemuse-chardet";
-
 import { bmsPatternOverview } from "../main";
-import { decode } from "../decoder/decoder";
 import { extname } from "path";
 import { readFileSync } from "fs";
 
