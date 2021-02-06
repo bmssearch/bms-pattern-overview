@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 
-import { bmsPatternOverview } from "../main";
+import { bmsPatternOverview } from "../index";
 
 const files = fs.readdirSync(path.resolve(__dirname, "./bmses"));
 const tsFiles = files.filter((f) => path.extname(f) === ".ts");
@@ -27,7 +27,7 @@ describe("e2e", () => {
 
       const pattern = bmsPatternOverview(buffer, ext);
 
-      expect(pattern).toBe(expected);
+      expect(pattern).toEqual(expected);
     });
   });
 });

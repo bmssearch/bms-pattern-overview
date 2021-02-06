@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "dev": "npm run build && node ./dist/dev/index.js",
+    "dev": "npm run build && node ./dist/__dev__/index.js",
     "prepublishOnly": "npm run build"
   },
   "files": [

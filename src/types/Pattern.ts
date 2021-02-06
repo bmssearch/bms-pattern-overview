@@ -20,8 +20,8 @@ export type ConventionalPattern = Common & {
   comment?: string;
   basebpm?: number;
   bpm?: number;
-  playlevel?: number;
-  difficulty?: number;
+  level: number;
+  difficulty: number;
   total?: number;
   lntype?: number;
 };
@@ -36,7 +36,7 @@ export type BmsonPattern = Common & {
   genre: string;
   modeHint?: string;
   chartName?: string;
-  level?: number;
+  level: number;
   initBpm?: number;
   judgeRank?: number;
   total?: number;

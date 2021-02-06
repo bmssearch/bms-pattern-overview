@@ -35,7 +35,7 @@ export const parseBmson = (buffer: Buffer): BmsonPattern => {
     genre: songInfo.genre,
     modeHint,
     chartName: castString(bmson.info.chart_name),
-    level: castNumber(bmson.info.level),
+    level: castNumber(bmson.info.level) || 0,
     initBpm,
     judgeRank: castNumber(bmson.info.judge_rank),
     total: castNumber(bmson.info.total),

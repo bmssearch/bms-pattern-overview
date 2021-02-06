@@ -64,19 +64,23 @@ export class BmsCalculator {
       .all()
       .some((obj) => obj.channel.match(/(2|4|6)([8-9])/));
 
+    const hasOnlyPms5KeyNotesOn1p = !objects
+      .all()
+      .some((obj) => obj.channel.match(/(11|12|16|17)/));
+
     // a PMS is identical to DP
     // https://hitkey.nekokan.dyndns.info/cmdsJP.htm#PMS
     if (fileExtension && conventionalPmsExtensions.includes(fileExtension)) {
-      // PMS 5KEYS(BMS-DP): 11 - 15
+      // PMS 5KEYS(BMS-DP): 13, 14, 15, 22, 23
       // PMS 9KEYS(BMS-DP): 11 - 15, 22 - 25
       // PMS 9KEYS(BME-SP): 11 - 19
       // PMS 18KEYS(BME-DP): 11 - 19, 21 - 29
       if (has2pBmeNotes) {
         return LaneType.P18K;
-      } else if (has2pNotes || has1pBmeNotes) {
-        return LaneType.P9K;
-      } else {
+      } else if (hasOnlyPms5KeyNotesOn1p) {
         return LaneType.P5K;
+      } else {
+        return LaneType.P9K;
       }
     }
 

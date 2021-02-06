@@ -6,6 +6,25 @@ import { BmsCalculator } from "../calculator/BmsCalculator";
 import { ConventionalPattern } from "../types/Pattern";
 import { decode } from "../decoder/decoder";
 
+const CHART_MAPPING = {
+  "11": "11",
+  "12": "12",
+  "13": "13",
+  "14": "14",
+  "15": "15",
+  "18": "16",
+  "19": "17",
+  "16": "1SC",
+  "21": "11",
+  "22": "12",
+  "23": "13",
+  "24": "14",
+  "25": "15",
+  "28": "16",
+  "29": "17",
+  "26": "1SC",
+};
+
 export const parseConventional = (
   buffer: Buffer,
   fileExtension?: string
@@ -13,7 +32,7 @@ export const parseConventional = (
   const decoded = decode(buffer);
   const { chart } = Bms.Compiler.compile(decoded);
 
-  const notes = Bms.Notes.fromBMSChart(chart);
+  const notes = Bms.Notes.fromBMSChart(chart, { mapping: CHART_MAPPING });
   const timing = Bms.Timing.fromBMSChart(chart);
   const songInfo = Bms.SongInfo.fromBMSChart(chart);
 
@@ -24,11 +43,11 @@ export const parseConventional = (
     totalNotes: BmsCalculator.totalPlayableNotes(notes),
     bpms: BmsCalculator.bpmsFromSpeedcore(timing._speedcore),
 
-    title: songInfo.title,
-    subtitles: songInfo.subtitles,
-    artist: songInfo.artist,
-    subartists: songInfo.subartists,
-    genre: songInfo.genre,
+    title: castString(chart.headers.get("title")) || "",
+    subtitles: chart.headers.getAll("subtitle") || [],
+    artist: castString(chart.headers.get("artist")) || "",
+    subartists: chart.headers.getAll("subartist") || [],
+    genre: castString(chart.headers.get("genre")) || "",
     player: castNumber(chart.headers.get("player")),
     rank: castNumber(chart.headers.get("rank")),
     defexrank: castNumber(chart.headers.get("defexrank")),
@@ -36,7 +55,7 @@ export const parseConventional = (
     comment: castString(chart.headers.get("comment")),
     basebpm: castNumber(chart.headers.get("basebpm")),
     bpm: castNumber(chart.headers.get("bpm")),
-    playlevel: songInfo.level,
+    level: songInfo.level,
     difficulty: songInfo.difficulty,
     total: castNumber(chart.headers.get("total")),
     lntype: castNumber(chart.headers.get("lntype")),

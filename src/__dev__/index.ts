@@ -1,4 +1,4 @@
-import { bmsPatternOverview } from "../main";
+import { bmsPatternOverview } from "../index";
 import { extname } from "path";
 import { readFileSync } from "fs";
 
