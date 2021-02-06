@@ -1,10 +1,12 @@
 export const LaneType = {
-  B_5K: "B_5K",
-  B_7K: "B_7K",
-  B_10K: "B_10K",
-  B_14K: "B_14K",
-  P_5K: "P_5K",
-  P_9K: "P_9K",
+  B5K: "B5K",
+  B7K: "B7K",
+  B10K: "B10K",
+  B14K: "B14K",
+  P5K: "P5K",
+  P9K: "P9K",
+  P18K: "P18K",
+  UNKNOWN: "UNKNOWN",
 } as const;
 
 export type LaneTypeType = typeof LaneType[keyof typeof LaneType];

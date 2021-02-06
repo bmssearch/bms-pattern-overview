@@ -1,10 +1,11 @@
 {
   "name": "@bmssearch/bms-pattern-overview",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
+    "dev": "npm run build && node ./dist/dev/index.js",
     "prepublishOnly": "npm run build"
   },
   "files": [
@@ -16,13 +17,16 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bemuse-chardet": "0.0.8",
     "bms": "^45.1.0",
     "bmson": "^45.1.0",
     "crypto": "^1.0.1",
     "iconv-lite": "^0.6.2",
+    "is-utf8": "^0.2.1",
     "jschardet": "^2.2.1"
   },
   "devDependencies": {
+    "@types/is-utf8": "^0.2.0",
     "@types/node": "^13.13.5",
     "typescript": "^3.8.3"
   }
