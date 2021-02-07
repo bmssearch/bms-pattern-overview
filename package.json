@@ -1,6 +1,6 @@
 {
   "name": "@bmssearch/bms-pattern-overview",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -18,10 +18,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bemuse-chardet": "0.0.8",
     "bms": "^45.1.0",
     "bmson": "^45.1.0",
-    "crypto": "^1.0.1",
     "iconv-lite": "^0.6.2",
     "is-utf8": "^0.2.1",
     "jschardet": "^2.2.1"
