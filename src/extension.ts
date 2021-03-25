@@ -5,4 +5,7 @@ export const conventionalExtensions = [
   ...conventionalPmsExtensions,
 ];
 export const bmsonExtensions = [".bmson"];
-export const supportedExtensions = [...conventionalExtensions, bmsonExtensions];
+export const supportedExtensions = [
+  ...conventionalExtensions,
+  ...bmsonExtensions,
+];
