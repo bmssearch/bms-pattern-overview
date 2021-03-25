@@ -1,21 +1,17 @@
 {
   "name": "@bmssearch/bms-pattern-overview",
-  "version": "0.0.4",
-  "description": "",
+  "version": "0.9.0",
+  "description": "BMS pattern files reader for overviews.",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "dev": "npm run build && node ./dist/__dev__/index.js",
     "prepublishOnly": "npm run build"
   },
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "author": "",
+  "author": "bmssearch",
   "license": "MIT",
   "dependencies": {
     "bms": "^45.1.0",
