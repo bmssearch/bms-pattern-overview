@@ -1,12 +1,12 @@
 import { LaneTypeType } from "./LaneType";
 
-type Common = {
+type Meta = {
   laneType: LaneTypeType;
   totalNotes: number;
   bpms: number[];
 };
 
-export type ConventionalPattern = Common & {
+export type ConventionalPattern = Meta & {
   format: "conventional";
   title: string;
   subtitles: string[];
@@ -26,7 +26,7 @@ export type ConventionalPattern = Common & {
   lntype?: number;
 };
 
-export type BmsonPattern = Common & {
+export type BmsonPattern = Meta & {
   format: "bmson";
   version?: string;
   title: string;
