@@ -1,6 +1,6 @@
 {
   "name": "@bmssearch/bms-pattern-overview",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "BMS pattern files reader for overviews.",
   "main": "dist/index.js",
   "scripts": {
