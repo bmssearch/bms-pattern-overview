@@ -47,7 +47,7 @@ export class BmsCalculator {
 
   public static laneType = (
     objects: BMSObjects,
-    fileExtension?: string
+    fileExtension: string
   ): LaneTypeType => {
     // BMS: 1 - 6, 7(FREE ZONE)
     // BME: 1 - 9
@@ -70,7 +70,7 @@ export class BmsCalculator {
 
     // a PMS is identical to DP
     // https://hitkey.nekokan.dyndns.info/cmdsJP.htm#PMS
-    if (fileExtension && conventionalPmsExtensions.includes(fileExtension)) {
+    if (conventionalPmsExtensions.includes(fileExtension)) {
       // PMS 5KEYS(BMS-DP): 13, 14, 15, 22, 23
       // PMS 9KEYS(BMS-DP): 11 - 15, 22 - 25
       // PMS 9KEYS(BME-SP): 11 - 19

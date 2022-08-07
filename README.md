@@ -3,15 +3,12 @@
 ## Usage
 
 ```typescript
-import {
-  bmsPatternOverview,
-  isSupported,
-} from "@bmssearch/bms-pattern-overview";
+import { scan, isSupported } from "@bmssearch/bms-pattern-overview";
 
 // const ext: string = file extension including leading period. (eg. `.bme`)
 // const buffer: Buffer = read a file.
 
-const overview = bmsPatternOverview(buffer, ext);
+const overview = scan(buffer, ext);
 
 console.log(overview);
 /*
@@ -62,4 +59,3 @@ for bmson patterns
 }
 */
 ```
-
