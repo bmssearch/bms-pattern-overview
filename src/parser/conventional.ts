@@ -5,6 +5,7 @@ import { castNumber, castString } from "../utils/cast";
 import { BmsCalculator } from "../calculator/BmsCalculator";
 import { ConventionalPattern } from "../types/Pattern";
 import { decode } from "../decoder/decoder";
+import { ScanError } from "../types/errors";
 
 const CHART_MAPPING = {
   "11": "11",
@@ -27,10 +28,22 @@ const CHART_MAPPING = {
 
 export const parseConventional = (
   buffer: Buffer,
-  fileExtension?: string
+  fileExtension: string
 ): ConventionalPattern => {
   const decoded = decode(buffer);
   const { chart } = Bms.Compiler.compile(decoded);
+
+  let isJSON = false;
+  try {
+    JSON.parse(decoded);
+    isJSON = true;
+  } catch (err) {
+    // pass
+  }
+
+  if (isJSON) {
+    throw new ScanError("Failed to parse as JSON.");
+  }
 
   const notes = Bms.Notes.fromBMSChart(chart, { mapping: CHART_MAPPING });
   const timing = Bms.Timing.fromBMSChart(chart);

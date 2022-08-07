@@ -6,10 +6,17 @@ import { BmsCalculator } from "../calculator/BmsCalculator";
 import { BmsonCalculator } from "../calculator/BmsonCalculator";
 import { BmsonPattern } from "../types/Pattern";
 import { decode } from "../decoder/decoder";
+import { ScanError } from "../types/errors";
 
 export const parseBmson = (buffer: Buffer): BmsonPattern => {
   const decoded = decode(buffer);
-  const bmson = JSON.parse(decoded);
+
+  let bmson: any;
+  try {
+    bmson = JSON.parse(decoded);
+  } catch (err) {
+    throw new ScanError("Failed to parse as JSON.");
+  }
 
   const songInfo = Bmson.songInfoForBmson(bmson);
   const notes = Bmson.musicalScoreForBmson(bmson).notes;

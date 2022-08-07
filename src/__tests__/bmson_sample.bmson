@@ -1,0 +1,31 @@
+{
+  "bga": {
+    "bga_events": [],
+    "bga_header": [],
+    "layer_events": [],
+    "poor_events": []
+  },
+  "bpm_events": [],
+  "info": {
+    "artist": "sampler",
+    "back_image": "",
+    "banner_image": "",
+    "chart_name": "sample",
+    "eyecatch_image": "",
+    "genre": "SAMPLE",
+    "init_bpm": 100,
+    "judge_rank": 100,
+    "level": 5,
+    "mode_hint": "beat-7k",
+    "preview_music": "",
+    "resolution": 240,
+    "subartists": [],
+    "subtitle": "",
+    "title": "SAMPLE BMSON",
+    "title_image": "",
+    "total": 100
+  },
+  "lines": [],
+  "sound_channels": [],
+  "version": "1.0.0"
+}
