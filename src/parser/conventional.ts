@@ -42,7 +42,7 @@ export const parseConventional = (
   }
 
   if (isJSON) {
-    throw new ScanError("Failed to parse as JSON.");
+    throw new ScanError("File content is JSON, instead of plain text.");
   }
 
   const notes = Bms.Notes.fromBMSChart(chart, { mapping: CHART_MAPPING });
